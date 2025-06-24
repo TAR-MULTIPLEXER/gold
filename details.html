@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-yNlHdllG1OkNlFuKpFaVF11NoX9d/3bqEyj1Og2bvRK0da1Oc2yTHi/j0tnCfsrkIM91h9AjfXEZjmLr5Os5xg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Add your desired styles here */
+ 
+  </style>
+</head>
+<body>
+<!-- display here a nav  -->
+<nav class="navbar" id="navbar">
+    <div class="logo"><a href="index.html"><img src="picture/logo.jpg" alt=""></a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#service">Services</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="index.html#location">Location</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li id="show-btn"><i class="fa-solid fa-cart-shopping"></i></li>
+    </ul>
+    <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+  </nav>
+  <div id="productDetails">
+    <img src="product-image.jpg" alt="Product Image" class="product-image">
+    <div class="product-details">
+      <h2 class="product-name"></h2>
+      <p class="refrence">Reference FOB Price / Purchase Qty.</p>
+      <p class="product-price"></p>
+<div class="more-details">
+    <table>
+        <tr><th>Type: </th><td class="product-type"></td></tr>
+        <tr><th>Material: </th><td class="product-material"></td></tr>
+        <tr><th>Shape: </th><td class="product-shape"></td></tr>
+        <tr><th>Gender: </th><td class="product-gender"></td></tr>
+        <tr><th>Style: </th><td class="product-style"></td></tr>
+        <tr><th>Color: </th><td class="product-color"></td></tr>
+        <tr><th>Costomization: </th><td class="product-costomization"></td></tr>
+      </table>
+</div>
+    </div>
+  <form action="" onsubmit="return validateForm()" class="addtocart-form">
+    <input type="number " name="quantity" value="1" min="1" max="100" required><br>
+    <input type="submit" name="addtocart" class="addtocart-btn" value="Add To Cart">
+  </form>
+  </div>
+  <script>
+    //nav toggle 
+    function toggleMenu() {
+        var navLinks = document.getElementById("navLinks");
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+        }
+      }
+      //displaying the info sent from html 
+    const urlParams = new URLSearchParams(window.location.search);
+    const image = decodeURIComponent(urlParams.get('image'));
+    const name = decodeURIComponent(urlParams.get('name'));
+    const price = decodeURIComponent(urlParams.get('price'));
+    const type = decodeURIComponent(urlParams.get('type'));
+    const Material = decodeURIComponent(urlParams.get('Material'));
+    const shape = decodeURIComponent(urlParams.get('shape'));
+    const gender = decodeURIComponent(urlParams.get('gender'));
+    const style = decodeURIComponent(urlParams.get('style'));
+    const color = decodeURIComponent(urlParams.get('color'));
+    const costomization = decodeURIComponent(urlParams.get('costomization'));
+    // Create the HTML elements for the product details
+    const productImage = document.querySelector('.product-image');
+    productImage.src = image;
+    productImage.alt = 'Product Image';
+    const productName = document.querySelector('.product-name');
+    productName.textContent = name;
+    const productPrice = document.querySelector('.product-price');
+    productPrice.textContent =   price;
+    
+    const productType = document.querySelector('.product-type');
+    productType.textContent = type;
+    
+    const productMaterial = document.querySelector('.product-material');
+    productMaterial.textContent = Material;
+    
+    const productShape = document.querySelector('.product-shape');
+    productShape.textContent =  shape;
+    
+    const productGender = document.querySelector('.product-gender');
+    productGender.textContent =gender;
+    
+    const productStyle = document.querySelector('.product-style');
+    productStyle.textContent = style;
+    
+    const productColor = document.querySelector('.product-color');
+    productColor.textContent = color;
+    
+    const productCostomization = document.querySelector('.product-costomization');
+    productCostomization.textContent = costomization;
+    
+    function validateForm() {
+      var quantity = document.getElementsByName("quantity")[0].value;
+      if (quantity > 1000) {
+        alert("Quantity cannot be above 1000");
+        return false; // Prevent form submission
+      }
+      return true; // Allow form submission
+    }
+    
+  </script>
+</body>
+</html>

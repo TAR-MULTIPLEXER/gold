@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: silver;
+            width: 100%;
+            background: transparent;
+            z-index: 10;
+            margin-right: 10px;
+          }
+          .nav-links {
+            display: flex;
+            list-style: none;
+          }
+          
+          .nav-links li {
+            padding: 0 15px;
+          }
+          .nav-links li a:hover{
+        transition-duration: 0.5s;
+        color:goldenrod;
+        font-weight: 700;
+          }
+          .nav-links a {
+            text-decoration: none;
+            color: black;
+          }
+          
+          .hamburger-menu {
+            display: none; 
+            cursor: pointer;
+          }
+          @media screen and (max-width: 768px) {
+            .navbar{
+              width:95%;
+            }
+            .nav-links {
+              display: none; 
+              flex-direction: column;
+              text-align: center;
+              background-color: silver;
+              width: 100%;
+              position: absolute;
+              top: 80px;
+              left: 0;
+            }
+          
+            .nav-links li {
+              padding: 15px 0;
+            }
+         
+            .hamburger-menu {
+              display: block; 
+            }
+        }
+    </style>
+    <nav class="navbar" id="navbar">
+        <!-- <div class="logo"><a href="#home"><img src="picture/logo.jpg" alt=""></a></div> -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><i class="fa-solid fa-cart-shopping"></i></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+      </nav>
+      <script>
+        window.onscroll = function() {scrollFunction()};
+        var navLinks = document.getElementById("navLinks").getElementsByTagName("a");
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("navbar").style.backgroundColor = "silver";
+            // for (var i = 0; i < navLinks.length; i++) {
+            //   navLinks[i].style.color = "white"; 
+            // }
+          } else {
+            document.getElementById("navbar").style.backgroundColor = "transparent";
+            // for (var i = 0; i < navLinks.length; i++) {
+            //   navLinks[i].style.color = "black";
+            // }
+          }
+        }
+      </script>
+</body>
+</html>

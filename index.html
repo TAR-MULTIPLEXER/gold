@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-yNlHdllG1OkNlFuKpFaVF11NoX9d/3bqEyj1Og2bvRK0da1Oc2yTHi/j0tnCfsrkIM91h9AjfXEZjmLr5Os5xg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="index.css">
+  <script src="script.js" defer></script>
+  <title>lauxary </title>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="logo"><a href="#home"><img src="picture/logo.jpg" alt=""></a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#service">Services</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+  </nav>
+  <div class="home" id="home">
+    <img src="picture/home-page-background.jpg" alt="">
+  </div>
+  <!-- 2nd navigation  -->
+  <button id="toggleBtn">Filter<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
+  <div class="nav2">
+    <button id="resetBtn">Clear Filters</button>
+    <h3>Filters</h3>
+    <hr>
+
+    <div class="categories">
+      <legend>Categories</legend>
+      <form action="" id="categories">
+        <input type="checkbox" name="category" value="Earring" onchange="filterImages()">Earring<br>
+        <input type="checkbox" name="category" value="Chain" onchange="filterImages()">Chain<br>
+        <input type="checkbox" name="category" value="Pearls" onchange="filterImages()">Pearls<br>
+        <input type="checkbox" name="category" value="Beaded" onchange="filterImages()">Beaded<br>
+        <input type="checkbox" name="category" value="Ring" onchange="filterImages()">Ring<br>
+        <input type="checkbox" name="category" value="Platinum" onchange="filterImages()">Platinum<br>
+        <input type="checkbox" name="category" value="Brooch" onchange="filterImages()">Brooch<br>
+      </form>
+    </div>
+    <hr>
+    <div class="filter-price">
+      <legend>Price</legend>
+      <div class="from-to">
+        <select name="from" id="from">
+          <option value="250" selected>250</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+          <option value="2000">2000</option>
+          <option value="5000">5000</option>
+        </select>
+        <p>To</p>
+        <select name="to" id="to">
+          <option value="5000" selected>5000</option>
+          <option value="2000">2000</option>
+          <option value="1000">1000</option>
+          <option value="500">500</option>
+          <option value="250">250</option>
+        </select>
+        <button onclick="filterImagesByPrice()">Apply Filter</button>
+      </div>
+    </div>
+    <hr>
+    <div class="search-filter">
+      <legend>Search </legend>
+      <i class="fa-solid fa-search" style="margin-left: 5px;color:grey;"></i> <input type="text" class="search-filter"
+        id="search-filter" placeholder="Search Barand">
+    </div>
+    <div class="brands">
+      <legend>Brands</legend>
+      <form action="" id="brand">
+        <input type="checkbox" name="brand" value="b1">B1<br>
+        <input type="checkbox" name="brand" value="b2">B2<br>
+        <input type="checkbox" name="brand" value="b3">B3<br>
+        <input type="checkbox" name="brand" value="b4">B4<br>
+      </form>
+    </div>
+    <hr>
+    <div class="discount">
+      <legend>Discount</legend>
+      <input type="checkbox" name="discount" value="70">70% or more<br>
+      <input type="checkbox" name="discount" value="60">60% or more<br>
+      <input type="checkbox" name="discount" value="50">50% or more<br>
+      <input type="checkbox" name="discount" value="40">40% or more<br>
+      <input type="checkbox" name="discount" value="30">30% or more<br>
+    </div>
+  </div>
+  <div class="gallery">
+  </div>
+
+  <button class="view-more"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-down"></i></button>
+
+
+
+  <!-- about part  -->
+  <main id="about">
+    <section>
+      <h2>Our Story</h2>
+      <p>Welcome to our jewelry shop, where beauty meets craftsmanship. With a passion for exquisite designs and
+        attention to detail, we have been providing stunning jewelry pieces to our customers for over a decade.
+        Our journey began with a small workshop and a vision to create timeless pieces that capture the essence
+        of elegance and sophistication. Today, we take pride in offering a wide range of jewelry collections
+        that cater to every style and occasion.</p>
+    </section>
+    <section>
+      <h2>Our Mission</h2>
+      <p>At our jewelry shop, our mission is to help you celebrate life's special moments with jewelry that
+        reflects your unique personality. We believe that every piece of jewelry tells a story, and we strive to
+        create designs that become cherished heirlooms. With a commitment to quality and customer satisfaction,
+        we source the finest materials and work with skilled artisans to bring our designs to life. Our mission
+        is to provide you with exceptional jewelry that brings joy and adds a touch of sparkle to your life.</p>
+    </section>
+    <section>
+      <h2>Our Team</h2>
+      <p>Behind our jewelry shop is a team of passionate individuals who share a love for craftsmanship and a
+        dedication to customer service. From our talented designers who create breathtaking designs to our
+        skilled artisans who bring them to life, each member of our team plays a vital role in ensuring the
+        highest quality standards. We are here to guide you in finding the perfect piece of jewelry, answer your
+        questions, and provide a personalized shopping experience that exceeds your expectations.</p>
+    </section>
+  </main>
+ 
+  <!-- view ad -->
+  <div id="thead" class="vad">
+    <span class="closead" onclick="closeAd()">&times;</span>
+    <img id="adimage" class="modal-ad">
+    <button class="add-btn-ad">Add To Cart</button>
+  </div>
+  <div id="offer">
+    Offer 20%
+  </div>
+  <div class="scrolloffer">
+    <div class="scroll-image">
+      <img src="picture/jewelries-1.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-2.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-3.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-4.png" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/ETHIOPIAN OPAL RING.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/ring-blue-diamong.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-1.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-2.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-3.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/jewelries-4.png" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/ETHIOPIAN OPAL RING.jpg" alt="">
+    </div>
+    <div class="scroll-image">
+      <img src="picture/ring-blue-diamong.jpg" alt="">
+    </div>
+  </div>
+  <main>
+    <!-- Ad Section -->
+    <div class="ad" onclick="viewad('picture/ads.jpg')">
+    </div>
+  </main>
+  <hr>
+  <section id="special-items">
+    <div class="special-container">
+      <img src="picture/ETHIOPIAN OPAL RING.jpg" alt="">
+      <div class="special-item-details">
+        <h2 align="center">The Timeless Allure of Jewelry</h2>
+        <article>
+          <p>Jewelry has long been an essential part of human culture, serving as adornment, symbol, and status marker.
+            From ancient civilizations to modern societies, the allure of jewelry has endured through the ages.</p>
+          <p>Each piece of jewelry tells a story, whether it's a family heirloom passed down through generations or a
+            contemporary design that captures a moment in time. The craftsmanship and artistry involved in creating
+            jewelry make each piece a work of art, reflecting the creativity and skill of its maker.</p>
+          <p>Furthermore, jewelry holds significant sentimental value for many individuals, marking milestones such as
+            engagements, weddings, and anniversaries. It serves as a tangible expression of love, commitment, and
+            celebration.</p>
+          <p>Exploring the world of jewelry unveils a rich tapestry of cultures, traditions, and craftsmanship. Whether
+            it's the sparkle of a diamond, the luster of a pearl, or the intricate patterns of metalwork, jewelry
+            continues to captivate and inspire, making it a timeless and cherished form of self-expression.</p>
+        </article>
+        </p> <br>
+        <span style="color: goldenrod; font-weight:700;">$249.95</span><br><br>
+        <span class="available">Available</span><br><br>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="scroll-down">
+      <img src="picture/jewelries-1.jpg" alt=""><img src="picture/jewelries-2.jpg" alt="">
+      <img src="picture/jewelries-3.jpg" alt=""><img src="picture/jewelries-4.png" alt="">
+      <img src="picture/ring-blue-diamong.jpg" alt="">
+      <img src="picture/ETHIOPIAN OPAL RING.jpg" alt="">
+    </div>
+    <div class="item-man">
+      <h2> Candere by Kalyan Jewellers Hallmark 18kt Yellow Gold ring</h2>
+      <img src="picture/gold-ring.jpg" alt="">
+      <p> This is a genuine product of Candere by Kalyan Jewellers. This product comes with a lifetime buyback policy
+        provided by the brand
+        Covered in Warranty
+        If any customer wishes to return a Joyalukkas product purchased from Flipkart or wants money back in future,
+        they
+        can do so by sending back the product to the brand or by visiting any of their offline outlets in India. Please
+        call or visit any of the nearest Joyalukkas outlets to know more about the in store buy back policy.
+        Not Covered in Warranty
+        Candere currently does not accept Loose Solitaires and Tushi Necklaces under buyback policy. Shipping charge of
+        Rs.500 will be borne by the customer for all jewellery under this policy. Policy doesn't cover making charges
+        and
+        taxes.</p>
+      <p>Price: <span class="notavailable">Not Available</span></p>
+    </div>
+  </section>
+  <h2 align="center">Our Services</h2>
+  <section class="services" id="service">
+    <div class="service">
+      <h3>Custom Jewelry Design</h3>
+      <p>Our experienced jewelers can create unique and personalized jewelry pieces tailored to your preferences.
+        Whether you're looking for an engagement ring, a necklace, a bracelet, or a pair of earrings, we can bring your
+        vision to life. From selecting the perfect gemstones to designing intricate settings, we pay meticulous
+        attention to detail to ensure your custom piece is truly one-of-a-kind.</p>
+    </div>
+    <div class="service">
+      <h3>Jewelry Repair and Restoration</h3>
+      <p>Is your favorite piece of jewelry in need of repair or restoration? Our skilled craftsmen can bring new life to
+        your beloved pieces. From fixing broken chains and clasps to replacing missing stones, we handle each repair
+        with utmost care and precision. Our goal is to restore the original beauty and integrity of your jewelry,
+        allowing you to enjoy it for years to come.</p>
+    </div>
+    <div class="service">
+      <h3>Ring Sizing and Resizing</h3>
+      <p>A properly fitting ring is essential for comfort and security. Whether you need to resize a newly purchased
+        ring or adjust the size of an inherited or vintage piece, our experts will ensure a perfect fit. Using precise
+        techniques, we carefully resize rings while preserving their design and integrity, allowing you to wear your
+        treasured jewelry with confidence.</p>
+    </div>
+    <div class="service">
+      <h3>Stone Setting and Prong Repair</h3>
+      <p>Our skilled jewelers specialize in stone setting and prong repair. Whether you need a new stone set in your
+        ring, pendant, or earrings, or you require prongs to be repaired or replaced to secure your precious gemstones,
+        we have the expertise to handle it with precision and care. We ensure that each stone is securely set to
+        highlight its brilliance and enhance the overall beauty of your jewelry.</p>
+    </div>
+  </section><br><br>
+  <section id="contact">
+    <div class="contact">
+      <h1>Contact Us</h1>
+      <p>If you have any questions, comments, or inquiries, please don't hesitate to get in touch with Me. You can reach
+        Me at the following:</p>
+      <ul class="contact-list">
+        <li><span>Address:</span>
+        the shop address
+        </li>
+        <li>
+          <span>Email:</span>
+          <a href="mailto:golden@gmail.com">golden@gmail.com</a>
+        </li>
+        <li>
+          <span>Phone:</span>
+          <a href="tel:+96170389556">+961 70 389 556</a>
+        </li>
+      </ul>
+    </div>
+  </section><br><br>
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://www.instagram.com/yourluxuryjewelry" target="_blank"><i class="fa-brands fa-instagram fa-2xl"
+            style="color:rgb(246, 109, 59)"></i></a>
+        <a href="https://www.facebook.com/yourluxuryjewelry" target="_blank"><i class="fa-brands fa-facebook fa-2xl"
+            style="color:rgb(59, 59, 240);"></i></a>
+        <!-- Add more social media links and icons as needed -->
+      </div>
+
+      <div class="sponsors">
+
+        <div class="sponsor-list">
+          <a href="sponsor1link"><img src="picture/omega.png" alt="Sponsor 1"></a>
+          <a href="sponsor2link"><img src="picture/sponsors2.png" alt="Sponsor 2"></a>
+          <a href="sponsor1link"><img src="picture/sponsors3.png" alt="Sponsor 1"></a>
+          <a href="sponsor2link"><img src="picture/sponsors4.png" alt="Sponsor 2"></a>
+          <a href="sponsor1link"><img src="picture/sponsors5.png" alt="Sponsor 1"></a>
+
+        </div>
+      </div>
+    </div>
+    <p>&copy; 2024 Luxury Jewelry | All rights served | Developed By:Abdullah Nasser Tarhini <br>For more informations visit : <a
+        href="https://abdullahtarhini-portfolio.rf.gd">Portfolio</a> </p>
+  </footer>
+</body>
+
+</html>
